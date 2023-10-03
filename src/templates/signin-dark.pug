@@ -1,0 +1,46 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var pageTitle = 'Sign In Page (Dark)'
+  - var bodyClass = 'bg-dark'
+
+//- Page Content
+block content
+  .container-fluid.d-flex.h-100.align-items-center.justify-content-center.py-4.py-sm-5
+    .card.card-light.card-body(style='max-width: 940px')
+      a(href='#' onclick='window.history.go(-1); return false;').position-absolute.top-0.end-0.nav-link-light.fs-sm.py-1.px-2.mt-3.me-3
+        i.fi-arrow-long-left.fs-base.me-2
+        | Go back
+      .row.mx-0.align-items-center
+        .col-md-6.border-end-md.border-light.p-2.p-sm-5
+          h2.h3.text-light.mb-4.mb-sm-5 Hey there!<br>Welcome back.
+          img(src='img/signin-modal/signin-dark.svg' class='d-block mx-auto' width='344' alt='Illustartion')
+          .text-light.mt-4.mt-sm-5
+            span.opacity-60 Don't have an account? 
+            a(href='signup-dark.html').text-light Sign up here
+        .col-md-6.px-2.pt-2.pb-4.px-sm-5.pb-sm-5.pt-md-5
+          a(href='#').btn.btn-outline-info.w-100.mb-3
+            i.fi-google.fs-lg.me-1
+            | Sign in with Google
+          a(href='#').btn.btn-outline-info.w-100.mb-3
+            i.fi-facebook.fs-lg.me-1
+            | Sign in with Facebook
+          .d-flex.align-items-center.py-3.mb-3
+            hr.hr-light.w-100
+            .text-light.opacity-70.px-3 Or
+            hr.hr-light.w-100
+          form(novalidate).needs-validation
+            .mb-4
+              label(for='signin-email').form-label.text-light.mb-2 Email address
+              input(type='email' id='signin-email' placeholder='Enter your email' required).form-control.form-control-light
+            .mb-4
+              .d-flex.align-items-center.justify-content-between.mb-2
+                label(for='signin-password').form-label.text-light.mb-0 Password
+                a(href='#').fs-sm.text-light Forgot password?
+              .password-toggle
+                input(type='password' id='signin-password' placeholder='Enter password' required).form-control.form-control-light
+                label(aria-label='Show/hide password').password-toggle-btn
+                  input(type='checkbox').password-toggle-check
+                  span.password-toggle-indicator
+            button(type='submit').btn.btn-primary.btn-lg.w-100 Sign in

@@ -1,0 +1,46 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var pageTitle = 'Sign In Page'
+  - var bodyClass = 'bg-secondary'
+
+//- Page Content
+block content
+  .container-fluid.d-flex.h-100.align-items-center.justify-content-center.py-4.py-sm-5
+    .card.card-body(style='max-width: 940px')
+      a(href='#' onclick='window.history.go(-1); return false;').position-absolute.top-0.end-0.nav-link.fs-sm.py-1.px-2.mt-3.me-3
+        i.fi-arrow-long-left.fs-base.me-2
+        | Go back
+      .row.mx-0.align-items-center
+        .col-md-6.border-end-md.p-2.p-sm-5
+          h2.h3.mb-4.mb-sm-5 Hey there!<br>Welcome back.
+          img(src='img/signin-modal/signin.svg' class='d-block mx-auto' width='344' alt='Illustartion')
+          .mt-4.mt-sm-5
+            | Don't have an account? 
+            a(href='signup-light.html') Sign up here
+        .col-md-6.px-2.pt-2.pb-4.px-sm-5.pb-sm-5.pt-md-5
+          a(href='#').btn.btn-outline-info.w-100.mb-3
+            i.fi-google.fs-lg.me-1
+            | Sign in with Google
+          a(href='#').btn.btn-outline-info.w-100.mb-3
+            i.fi-facebook.fs-lg.me-1
+            | Sign in with Facebook
+          .d-flex.align-items-center.py-3.mb-3
+            hr.w-100
+            .px-3 Or
+            hr.w-100
+          form(novalidate).needs-validation
+            .mb-4
+              label(for='signin-email').form-label.mb-2 Email address
+              input(type='email' id='signin-email' placeholder='Enter your email' required).form-control
+            .mb-4
+              .d-flex.align-items-center.justify-content-between.mb-2
+                label(for='signin-password').form-label.mb-0 Password
+                a(href='#').fs-sm Forgot password?
+              .password-toggle
+                input(type='password' id='signin-password' placeholder='Enter password' required).form-control
+                label(aria-label='Show/hide password').password-toggle-btn
+                  input(type='checkbox').password-toggle-check
+                  span.password-toggle-indicator
+            button(type='submit').btn.btn-primary.btn-lg.w-100 Sign in
